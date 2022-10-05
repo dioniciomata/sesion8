@@ -3,10 +3,10 @@ const sequelize  = require('../config/db');
 
 const God = sequelize.define('God', {
     name:{
-        type: DataTypes.CHAR(64)
-    },
-    symbol: {
-        type: DataTypes.CHAR(64)
+        symbol: {
+            type: DataTypes.STRING(64)
+        },
+            type: DataTypes.STRING(64)
     }
 });
 
