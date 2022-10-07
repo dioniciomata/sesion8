@@ -35,6 +35,16 @@ const auth = {
         }
         next();
     },
+    isSeller: function (req,res,next){
+      console.log(req.auth.username);
+      if (!req.auth){
+          return res.sendStatus(401);
+      }
+      if (req.auth.username !== 'seller'){
+         return res.sendStatus(403);
+      }
+      next();
+    },
     opcional: expressjwt({
       secret: secret,
       algorithms: ['HS256'],

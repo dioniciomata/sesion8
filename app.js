@@ -10,6 +10,13 @@ app.use(express.json());
 app.use(auth.opcional);
 app.use('/', routes);
 
+const swaggerOptions = require ('./config/swagger');
+const swaggerJsDoc = require ('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
 try {
     sequelize.authenticate();
     sequelize.sync();

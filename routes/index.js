@@ -1,13 +1,20 @@
 const router = require('express').Router();
-const gods = require('./gods');
 const users = require('./users');
+const seller = require ('./seller');
+const products = require ('./products');
+const orders = require ('./orders');
+
 // const {signUp, logIn} = require('../controllers/users');
 
 router.get('/', (req,res) => {
-    res.json({'info':'Welcome to Gods API secured'})
+    res.json({'info':'Welcome to BeduShop API secured'})
 });
 
-router.use('/gods', gods);
+
 router.use('/users', users);
+router.use('/seller', seller);
+router.use('/products', products);
+router.use('/orders', orders);
+
 
 module.exports = router;
