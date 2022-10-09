@@ -3,19 +3,17 @@ const express = require('express');
 const sequelize = require('./config/db');
 const routes = require('./routes/index');
 const auth = require('./config/auth');
-const { STRING } = require('sequelize');
+
+const swaggerJsDoc = require ('swagger-jsdoc');
+const swaggerOptions = require ('./config/swagger');
+const swaggerUI = require('swagger-ui-express');
+const swaggerSpec = swaggerJsDoc(swaggerOptions);
 
 const app = express();
 app.use(express.json());
 app.use(auth.opcional);
 app.use('/', routes);
-
-const swaggerOptions = require ('./config/swagger');
-const swaggerJsDoc = require ('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 try {
     sequelize.authenticate();

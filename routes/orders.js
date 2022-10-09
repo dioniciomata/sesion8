@@ -6,7 +6,7 @@ const{
     updateOrder,
     deleteOrder
 } = require('../controllers/orders');
-const auth = require('../config/auth')
+const auth = require('../config/auth');
 
 router.get('/', auth.opcional, getOrders);
 router.get('/:id', auth.opcional, getOrder);

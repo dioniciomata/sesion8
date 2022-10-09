@@ -1,19 +1,13 @@
 const options = {
     swaggerDefinition: {
+        openapi:"3.0.0",
         info: {
-            version: "1.0.0",
-            title: "BeduShop API"
+            version: "1.0.1",
+            title: "BeduShop API",
+            description: "This is a REST API made with Express."
         },
-        // componens:{
-        //     securitySchemes: {
-        //         bearerAuth: {
-        //             type:,
-        //             "JWT"
-        //         }
-        //     }
-        // }
     },
-    apis: ["./routes/gods.js"]
+    apis: ['./routes/products.js'],
 }
 
 module.exports = options;

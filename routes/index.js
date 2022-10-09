@@ -3,10 +3,11 @@ const users = require('./users');
 const seller = require ('./seller');
 const products = require ('./products');
 const orders = require ('./orders');
+const auth = require('../config/auth')
 
 // const {signUp, logIn} = require('../controllers/users');
 
-router.get('/', (req,res) => {
+router.get('/', auth.opcional, (req,res) => {
     res.json({'info':'Welcome to BeduShop API secured'})
 });
 
