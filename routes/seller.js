@@ -6,6 +6,7 @@ const {
     deleteSeller
 } = require('../controllers/seller');
 const auth = require('../config/auth')
+const { opcional } = require('../config/auth');
 
 router.get('/', auth.opcional, getSeller);
 router.post('/signup', auth.opcional, signSeller);

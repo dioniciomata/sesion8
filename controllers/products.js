@@ -22,7 +22,6 @@ async function updateProduct(req, res){
     const name = req.params.name;
     const product = req.body;
     const update = await Product.update(product, {where: {name}});
-    const product_updated = await Product.findByPk(update[0]);
     return res.status(201).json({updated:"true"});
 }
 
