@@ -8,7 +8,7 @@ const{
 } = require('../controllers/products');
 const auth = require('../config/auth');
 
-/**
+/** 
  * @openapi
  * /products:
  *   get:
